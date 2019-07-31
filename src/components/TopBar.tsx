@@ -8,7 +8,7 @@ const Compo = ({ data, actions }: State) => {
 
   return (
     <div style={style}>
-      <span>Logged user: {data.user}</span>
+      <span>Logged user: {data.user.username}</span>
       <span>
         <button onClick={() => actions.user.login()}> Change </button>
       </span>

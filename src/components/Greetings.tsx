@@ -4,7 +4,7 @@ import { State, connect } from "../state";
 const Compo = ({ data }: State) => {
   console.log("greetings user consumer rendering...");
 
-  return <span>Dear {data.user}, welcome. </span>;
+  return <span>Dear {data.user.username}, welcome. </span>;
 };
 
 export const Greetings = connect(

@@ -1,7 +1,7 @@
 import { State } from ".";
 
 import { Actions as UserActions, actions as useractions } from "../user";
-import { Actions as OtherActions, actions as otheractions } from "../other";
+import { Actions as OtherActions, actions as otheractions } from "../info";
 
 export type Action = () => void;
 

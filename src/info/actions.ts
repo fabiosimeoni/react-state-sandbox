@@ -6,9 +6,9 @@ export type Actions = {
 
 export const actions = (state: State): Actions => ({
   swap: () => {
-    state.setData({
-      ...state.data,
-      other: state.data.other === "another" ? "other" : "another"
-    });
+    const { data, initial } = state;
+    const info = data.info === initial.info ? "other info" : initial.info;
+
+    state.setData({ ...data, info });
   }
 });

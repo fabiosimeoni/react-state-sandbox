@@ -7,10 +7,10 @@ export type Actions = {
 export const actions = (state: State): Actions => {
   return {
     login: () => {
-      state.setData({
-        ...state.data,
-        user: state.data.user ? undefined : state.initial.user
-      });
+      const { data, initial } = state;
+      const username = data.user.username === initial.user.username ? "Franco" : initial.user.username;
+
+      state.setData({ ...data, user: { ...data.user, username } });
     }
   };
 };

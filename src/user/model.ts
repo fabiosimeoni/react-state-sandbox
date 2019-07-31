@@ -1,6 +1,4 @@
-export type Model = String;
-export const initial = "Pino";
-
 export type User = {
-  name: String;
+  username: String;
 };
+export const initial: User = { username: "Pino" };

@@ -6,13 +6,12 @@ const Compo = ({ data, actions }: State) => {
 
   return (
     <div>
-      Info: {data.other}{" "}
-      <button onClick={() => actions.other.swap()}>change</button>
+      Info: {data.info} <button onClick={() => actions.other.swap()}>change</button>
     </div>
   );
 };
 
 export const Info = connect(
   Compo,
-  data => [data.other]
+  data => [data.info]
 );

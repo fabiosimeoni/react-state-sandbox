@@ -1,5 +1,5 @@
-import { Model as User, initial as initialUser } from "../user";
-import { Model as Other, initial as initialOther } from "../other";
+import { User, initial as initialUser } from "../user";
+import { Info, initial as initialInfo } from "../info";
 import { Actions } from ".";
 
 export type State = {
@@ -9,6 +9,6 @@ export type State = {
   setData: React.Dispatch<React.SetStateAction<Model>>;
 };
 
-export type Model = { user: User } & { other: Other };
+export type Model = { user: User } & { info: Info };
 
-export const initial: Model = { user: initialUser, other: initialOther };
+export const initial: Model = { user: initialUser, info: initialInfo };
