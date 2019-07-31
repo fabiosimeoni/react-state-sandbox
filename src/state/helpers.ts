@@ -1,5 +1,6 @@
 import React, { useContext, useState, useMemo } from "react";
 import { Model, State, initial, actions } from ".";
+import produce from "immer";
 
 const StateContext = React.createContext<State>(null);
 
@@ -19,26 +20,20 @@ export const useCreateState = (): State => {
     initial: initial,
     actions: undefined,
     data,
-    setData: undefined
+    set: undefined
   };
 
   initialState.actions = actions(initialState);
-  initialState.setData = updater;
+  initialState.set = fun => updater(produce(data => void fun(data)));
 
   return initialState;
 };
 
-export const connect = (
-  Compo: (s: State) => JSX.Element,
-  dependencies?: (data: Model) => [any]
-) => {
+export const connect = (Compo: (s: State) => JSX.Element, dependencies?: (data: Model) => [any]) => {
   return () => Stateful(Compo, dependencies);
 };
 
-const Stateful = (
-  Compo: (s: State) => JSX.Element,
-  dependencies?: (data: Model) => [any]
-) => {
+const Stateful = (Compo: (s: State) => JSX.Element, dependencies?: (data: Model) => [any]) => {
   const state = useAppState();
   const deps = dependencies ? dependencies(state.data) : [state];
   // eslint-disable-next-line

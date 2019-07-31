@@ -6,7 +6,7 @@ export type State = {
   data: Model;
   initial: Model;
   actions: Actions;
-  setData: React.Dispatch<React.SetStateAction<Model>>;
+  set: (fun: (copy: Model) => any) => void;
 };
 
 export type Model = { user: User } & { info: Info };
